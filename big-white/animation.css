@@ -1,0 +1,13 @@
+@keyframes blink {
+  0%,
+  50% {
+    background-position: 0 100%;
+  }
+  85%,
+  95% {
+    background-position: 0 75%;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
