@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="index,主页,浏览器,可爱,精简,黑白,大白,极简,搜索"
+    />
+    <meta name="description" content="一个呆板的浏览器主页罢了，无名。" />
     <title>👀</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <div class="baymax"></div>
-    <script src="index.js"></script>
-</body>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <div class="bg">
+      <div class="baymax">
+        <input class="search-input" type="text" />
+      </div>
+      <div class="timer" title="单击子项隐藏，单击背景显示子项">
+        <div class="t1" name="date"></div>
+        <div class="t2" name="time"></div>
+      </div>
+      <div class="full-screen">进入全屏</div>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
 </html>

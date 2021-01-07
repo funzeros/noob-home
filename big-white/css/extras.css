@@ -1,0 +1,70 @@
+.search-input {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.8em;
+  bottom: 0;
+  border: 0;
+  outline: 0;
+  width: 80%;
+  height: 1.5em;
+  margin: auto;
+  z-index: 999;
+  background-color: #000000;
+  color: #ffffff;
+}
+.timer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 5px 0 0 5px;
+  border-radius: 10px;
+  width: 200px;
+  height: 72px;
+  color: #000000;
+}
+
+.timer:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.timer:active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.timer > div {
+  padding: 5px;
+}
+.timer > div:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+}
+
+.full-screen {
+  width: 30%;
+  height: 30%;
+  border-radius: 10px;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+}
+.full-screen:hover {
+  background-color: rgba(150, 150, 150, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.3),
+    0 0 10px -5px rgba(0, 0, 0, 0.3) inset;
+  color: #000000;
+}
+.full-screen:active {
+  background-color: rgba(120, 120, 120, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.3),
+    0 0 10px -5px rgba(0, 0, 0, 0.3) inset;
+}
