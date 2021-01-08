@@ -1,13 +1,13 @@
 class SyseEngine {
   constructor() {
     //  获取元素
-    this.oBg = document.querySelector(".bg") || document.body;
-    this.ot1 = document.querySelector(".bg .timer .t1");
-    this.ot2 = document.querySelector(".bg .timer .t2");
-    this.oTimer = document.querySelector(".bg .timer");
-    this.oSearchInput = document.querySelector(".bg .search-input");
-    this.oBaymax = document.querySelector(".bg .baymax");
-    this.oFullScreen = document.querySelector(".bg .full-screen");
+    this.oBg = this.getDOM(".bg", document.body);
+    this.ot1 = this.getDOM(".bg .timer .t1");
+    this.ot2 = this.getDOM(".bg .timer .t2");
+    this.oTimer = this.getDOM(".bg .timer");
+    this.oSearchInput = this.getDOM(".bg .search-input");
+    this.oBaymax = this.getDOM(".bg .baymax");
+    this.oFullScreen = this.getDOM(".bg .full-screen");
     // 执行方法
     this.sysReadyFn();
     this.exeChangeEye();
@@ -29,6 +29,10 @@ class SyseEngine {
     6: "六",
   };
   // 注册的方法
+  // 取DOM方法
+  getDOM(selector, defaultDOM = null) {
+    return document.querySelector(selector) || defaultDOM;
+  }
   // 系统初始化
   sysReadyFn() {
     document.oncontextmenu = () => {
