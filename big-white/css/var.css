@@ -13,4 +13,11 @@
     rgba(235, 235, 235, 0) 90%,
     rgba(235, 235, 235, 0) 100%
   );
+  --bg-color-light-1: #fff;
+  --bg-color-light-2: #eee;
+  --bg-color-light-3: #aaa;
+  --bg-color-light-eye: #efefef;
+  --bg-color-green-1: #cce8cf;
+  --bg-color-green-2: #a1dda8;
+  --bg-color-green-eye: #b5e2b9;
 }

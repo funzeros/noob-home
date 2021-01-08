@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    <div class="bg">
+    <div class="bg light">
       <div class="baymax">
         <input class="search-input" type="text" />
         <div class="think-word"></div>
@@ -22,8 +22,16 @@
         <div class="t1" name="date"></div>
         <div class="t2" name="time"></div>
       </div>
+      <div class="color">
+        <div class="light" theme="light"></div>
+        <div class="green" theme="green"></div>
+      </div>
+      <div class="weather-wrap nh-basic-scroll" isHidden="false">
+        <div class="weather"></div>
+      </div>
       <div class="full-screen">进入全屏</div>
     </div>
+    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>

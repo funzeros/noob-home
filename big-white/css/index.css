@@ -11,10 +11,25 @@ body,
   height: 100%;
 }
 .bg {
-  background: radial-gradient(circle at center, #fff, #fff 50%, #ccc);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   user-select: none;
+}
+.bg.light {
+  background: radial-gradient(
+    circle at center,
+    var(--bg-color-light-1),
+    var(--bg-color-light-1) 50%,
+    var(--bg-color-light-2)
+  );
+}
+.bg.green {
+  background: radial-gradient(
+    circle at center,
+    var(--bg-color-green-1),
+    var(--bg-color-green-1) 50%,
+    var(--bg-color-green-2)
+  );
 }
 .baymax {
   border-bottom: 1.5em solid #000;
@@ -47,14 +62,28 @@ body,
   top: -6em;
   transform: skewX(4deg);
 }
-.baymax::before {
-  background: linear-gradient(to bottom, #efefef, #efefef 50%, #000 50%, #000);
+.light .baymax::before,
+.light .baymax::after {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-color-light-eye),
+    var(--bg-color-light-eye) 50%,
+    #000 50%,
+    #000
+  );
   background-position: 0 -100%;
   background-size: 200% 200%;
 }
 
-.baymax::after {
-  background: linear-gradient(to bottom, #efefef, #efefef 50%, #000 50%, #000);
+.green .baymax::before,
+.green .baymax::after {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-color-green-eye),
+    var(--bg-color-green-eye) 50%,
+    #000 50%,
+    #000
+  );
   background-position: 0 -100%;
   background-size: 200% 200%;
 }
@@ -64,4 +93,27 @@ body,
 }
 .baymax::after {
   animation: blink 6s 0.1s infinite;
+}
+
+/*  美化滚动条 */
+.nh-basic-scroll::-webkit-scrollbar {
+  border-radius: 10px;
+  width: 6px;
+  height: 10px;
+  display: none;
+}
+.nh-basic-scroll::-webkit-scrollbar-track {
+  border-radius: 10px;
+  transition: 0.3s background-color;
+  transition: 0.3s background-color;
+}
+.nh-basic-scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #ddd;
+  transition: 0.3s background-color;
+  display: none;
+  transition: all 0.5s;
+}
+.nh-basic-scroll:hover::-webkit-scrollbar-thumb {
+  display: block;
 }

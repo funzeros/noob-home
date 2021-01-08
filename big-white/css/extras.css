@@ -1,3 +1,4 @@
+/* 搜索框 */
 .search-input {
   position: absolute;
   left: 0;
@@ -6,15 +7,16 @@
   bottom: 0;
   border: 0;
   outline: 0;
-  width: 80%;
+  width: calc(100% - 10em);
   height: 1.5em;
   margin: auto;
   z-index: 999;
   background-color: #000000;
   color: #ffffff;
 }
+/* 时间框 */
 .timer {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   box-sizing: border-box;
@@ -27,25 +29,25 @@
 }
 
 .timer:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(150, 150, 150, 0.2);
 }
 .timer:active {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(150, 150, 150, 0.15);
 }
 .timer > div {
   padding: 5px;
 }
 .timer > div:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 6px;
 }
-
+/* 全屏 */
 .full-screen {
   width: 30%;
   height: 30%;
   border-radius: 10px;
   position: absolute;
-  top: 5%;
+  top: 5em;
   left: 0;
   right: 0;
   margin: auto;
@@ -68,7 +70,7 @@
   box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.3),
     0 0 10px -5px rgba(0, 0, 0, 0.3) inset;
 }
-
+/* 联想词 */
 .think-word {
   position: absolute;
   top: 3em;
@@ -99,4 +101,84 @@
 }
 .think-word > div:active {
   opacity: 0.8;
+}
+/* 颜色主题 */
+.color {
+  border-radius: 4px;
+  height: 30px;
+  width: 55px;
+  display: flex;
+  margin: 5px 5px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.color > div {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  display: none;
+}
+.color > div:not(:first-of-type) {
+  margin-left: 0;
+}
+.color .light {
+  background: var(--bg-color-light-1);
+}
+.color .green {
+  background: var(--bg-color-green-1);
+}
+.color:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.color:active {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.color:hover > div {
+  display: block;
+}
+/* 天气 */
+.weather-wrap {
+  position: absolute;
+  width: calc(100% - 500px);
+  height: 64px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 3;
+  transition: all 0.3s linear;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.weather-wrap .weather {
+  white-space: nowrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 120px);
+  gap: 20px;
+  justify-content: center;
+}
+/* .weather-wrap .weather > div {
+  
+} */
+.weather-wrap[isHidden="false"]:hover {
+  background: rgba(255, 255, 255, 0.95);
+  overflow: auto;
+  height: 100%;
+  box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.2),
+    0 0 10px -5px rgba(0, 0, 0, 0.2) inset;
+}
+.weather-wrap[isHidden="true"]:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.2),
+    0 0 10px -5px rgba(0, 0, 0, 0.2) inset;
+}
+.weather-wrap[isHidden="true"]:hover::after {
+  content: "点击显示天气";
+  text-align: center;
+  display: block;
+  width: 100%;
+  line-height: 64px;
 }
