@@ -51,6 +51,7 @@ class SyseEngine {
     //
     this.showTime();
     this.getPosition();
+    this.getTheme();
     //
     this.eventAdd(
       this.oFullScreen,
@@ -94,9 +95,11 @@ class SyseEngine {
     this.eventAdd(this.oThinkWord, "click", (e) => {
       this.handleChooseThinkWord(e.target);
     });
+    //
     this.eventAdd(this.oColor, "click", (e) => {
       this.changeTheme(e.target);
     });
+    //
     this.eventAdd(this.oWeatherWrap, "click", (e) => {
       this.changeWeatherDisplay(e.target);
     });
@@ -355,6 +358,13 @@ class SyseEngine {
   // 切换主题
   changeTheme(target) {
     const theme = target.getAttribute("theme");
+    if (theme) {
+      this.oBg.className = "bg " + theme;
+      localStorage.setItem("bg_theme", theme);
+    }
+  }
+  getTheme() {
+    const theme = localStorage.getItem("bg_theme");
     if (theme) {
       this.oBg.className = "bg " + theme;
     }

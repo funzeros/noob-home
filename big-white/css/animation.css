@@ -11,3 +11,15 @@
     background-position: 0 100%;
   }
 }
+
+@keyframes open-eye {
+  0%,
+  10% {
+    background-color: #000000;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+    height: 0;
+    visibility: hidden;
+  }
+}
