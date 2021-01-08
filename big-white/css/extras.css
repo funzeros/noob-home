@@ -142,7 +142,7 @@
 .weather-wrap {
   position: absolute;
   width: calc(100% - 500px);
-  height: 64px;
+  height: 74px;
   margin: auto;
   top: 0;
   left: 0;

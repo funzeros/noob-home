@@ -344,12 +344,12 @@ class SyseEngine {
     }
   }
   initWeatherHidden(isHidden) {
-    if (isHidden === "false") {
-      this.oWeatherWrap.setAttribute("isHidden", "false");
-      this.oWeather.style.display = "grid";
-    } else {
+    if (isHidden === "true") {
       this.oWeatherWrap.setAttribute("isHidden", "true");
       this.oWeather.style.display = "none";
+    } else {
+      this.oWeatherWrap.setAttribute("isHidden", "false");
+      this.oWeather.style.display = "grid";
     }
   }
   // 切换主题
