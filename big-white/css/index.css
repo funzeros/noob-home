@@ -1,5 +1,6 @@
 @import "./animation.css";
 @import "./extras.css";
+@import "./var.css";
 * {
   padding: 0;
   margin: 0;

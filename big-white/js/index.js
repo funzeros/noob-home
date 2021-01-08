@@ -8,17 +8,20 @@ class SyseEngine {
     this.oSearchInput = this.getDOM(".bg .search-input");
     this.oBaymax = this.getDOM(".bg .baymax");
     this.oFullScreen = this.getDOM(".bg .full-screen");
+    this.oThinkWord = this.getDOM(".bg .think-word");
     // 执行方法
     this.sysReadyFn();
     this.exeChangeEye();
   }
-  // 元素和属性
+  // 元素
   oBg = null;
   ot1 = null;
   ot2 = null;
   oSearchInput = null;
   oBaymax = null;
   oFullScreen = null;
+  oThinkWord = null;
+  // 数据
   weekMap = {
     0: "日",
     1: "一",
@@ -35,10 +38,13 @@ class SyseEngine {
   }
   // 系统初始化
   sysReadyFn() {
+    //
     document.oncontextmenu = () => {
       return false;
     };
+    //
     this.showTime();
+    //
     this.eventAdd(
       this.oFullScreen,
       "click",
@@ -47,12 +53,15 @@ class SyseEngine {
       },
       true
     );
+    //
     this.eventAdd(this.oTimer, "click", (e) => {
       this.changeTimerVisibility(e);
     });
+    //
     this.eventAdd(this.oSearchInput, "keypress", (e) => {
       this.handleSearch(e);
     });
+    //
     this.eventAdd(
       this.oBaymax,
       "click",
@@ -61,6 +70,7 @@ class SyseEngine {
       },
       true
     );
+    //
     this.eventAdd(
       this.oBg,
       "click",
@@ -69,6 +79,14 @@ class SyseEngine {
       },
       true
     );
+    //
+    this.eventAdd(this.oSearchInput, "input", (e) => {
+      this.searchThink(e.target.value);
+    });
+    //
+    this.eventAdd(this.oThinkWord, "click", (e) => {
+      this.handleChooseThinkWord(e.target);
+    });
   }
   // 绑定事件
   eventAdd(el, event, fn, isTarget = false, useCap = false) {
@@ -213,9 +231,39 @@ class SyseEngine {
   // 清除输入框
   clearInput() {
     this.oSearchInput.value = "";
+    this.clearThinkWord();
   }
+  // 搜索联想词
+  searchThink(value) {
+    if (value) {
+      const oScript = document.createElement("script");
+      oScript.src = `https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${value}&cb=doJson&_=1544270132010`;
+      document.body.appendChild(oScript);
+      document.body.removeChild(oScript);
+    } else {
+      this.clearThinkWord();
+    }
+  }
+  showThinkWord(data) {
+    const wordList = data.s;
+    const str = wordList.map((m) => `<div>${m}</div>`).join("");
+    this.oThinkWord.innerHTML = str;
+  }
+  clearThinkWord() {
+    this.oThinkWord.innerHTML = "";
+  }
+  handleChooseThinkWord(target) {
+    const value = target.innerHTML;
+    if (value) {
+      window.open(`https://www.baidu.com/s?wd=${value}`);
+    }
+  }
+}
+
+function doJson(data) {
+  window.SysInstance.showThinkWord(data);
 }
 // 系统加载完成后需要执行的函数
 window.onload = () => {
-  new SyseEngine();
+  window.SysInstance = new SyseEngine();
 };

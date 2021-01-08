@@ -68,3 +68,35 @@
   box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.3),
     0 0 10px -5px rgba(0, 0, 0, 0.3) inset;
 }
+
+.think-word {
+  position: absolute;
+  top: 3em;
+  left: 0;
+  right: 0;
+  width: calc(100% - 4em);
+  margin: auto;
+  text-align: center;
+  line-height: 1.6em;
+}
+.think-word > div {
+  cursor: pointer;
+}
+.think-word > div::after,
+.think-word > div::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+}
+.think-word > div:hover {
+  background: var(--linear-gradient-233);
+}
+.think-word > div:hover::after,
+.think-word > div:hover::before {
+  background: var(--linear-gradient-233);
+}
+.think-word > div:active {
+  opacity: 0.8;
+}
