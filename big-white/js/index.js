@@ -305,8 +305,8 @@ class SyseEngine {
       data: {
         source: "pc",
         weather_type: "forecast_1h",
-        province: params.province,
-        city: params.city,
+        province: params.province || "浙江",
+        city: params.city || "舟山",
       },
       success: (data) => {
         if (data.status === 200) {
