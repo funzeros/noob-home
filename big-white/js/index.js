@@ -288,6 +288,10 @@ class SyseEngine {
         province: returnCitySN.cname.split("省")[0],
         city: returnCitySN.cname.split("省")[1],
       };
+      if (!params.city) {
+        params.province = "浙江";
+        params.city = "舟山";
+      }
       this.getWeather(params);
     } else {
       if (isStop) return;
@@ -305,8 +309,8 @@ class SyseEngine {
       data: {
         source: "pc",
         weather_type: "forecast_1h",
-        province: params.province || "浙江",
-        city: params.city || "舟山",
+        province: params.province,
+        city: params.city,
       },
       success: (data) => {
         if (data.status === 200) {
