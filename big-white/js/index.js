@@ -14,7 +14,7 @@ class SyseEngine {
     this.oWeatherWrap = this.getDOM(".bg .weather-wrap");
     // 执行方法
     this.sysReadyFn();
-    this.exeChangeEye();
+    // this.exeChangeEye();
   }
   // 元素
   oBg = null;

@@ -74,6 +74,7 @@ body,
   top: -6em;
   transform: skewX(4deg);
 }
+
 .light .baymax::before,
 .light .baymax::after {
   background: linear-gradient(
@@ -128,4 +129,11 @@ body,
 }
 .nh-basic-scroll:hover::-webkit-scrollbar-thumb {
   display: block;
+}
+
+.bei-an {
+  width: 100%;
+  position: fixed;
+  bottom: 20px;
+  text-align: center;
 }
